@@ -1,4 +1,4 @@
-﻿@model LoginViewModel
+﻿@model SAT.MVC.UI.Models.LoginViewModel
 
 @{
     ViewBag.Title = "Log in";
@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-info" />
+                        <input type="submit" value="Log in" class="btn btn-default" />
                     </div>
                 </div>
                 <p>
@@ -51,7 +51,7 @@
     </div>
     <div class="col-md-4">
         <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            @Html.Partial("_ExternalLoginsListPartial", new SAT.MVC.UI.Models.ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
 </div>

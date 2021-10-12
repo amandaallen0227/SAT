@@ -1,5 +1,4 @@
-using SAT.MVC.UI.Models;
-using SAT.MVC.UI.ViewModels;
+﻿using SAT.MVC.UI.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -25,8 +24,14 @@ namespace SAT.MVC.UI.Controllers
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {
-            get => _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            private set => _userManager = value;
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
         }
 
         //
@@ -351,7 +356,13 @@ namespace SAT.MVC.UI.Controllers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
-        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
 
         private async Task SignInAsync(ApplicationUser user, bool isPersistent)
         {

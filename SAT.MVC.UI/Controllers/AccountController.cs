@@ -1,5 +1,4 @@
-using SAT.MVC.UI.Models;
-using SAT.MVC.UI.ViewModels;
+﻿using SAT.MVC.UI.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -26,8 +25,14 @@ namespace SAT.MVC.UI.Controllers
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {
-            get => _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            private set => _userManager = value;
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
         }
 
         //
@@ -44,8 +49,11 @@ namespace SAT.MVC.UI.Controllers
 
         public ApplicationSignInManager SignInManager
         {
-            get => _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-            private set => _signInManager = value;
+            get
+            {
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set { _signInManager = value; }
         }
 
         //
@@ -60,7 +68,7 @@ namespace SAT.MVC.UI.Controllers
                 return View(model);
             }
 
-            // This doesn't count login failures towards lockout only two factor authentication
+            // This doen't count login failures towards lockout only two factor authentication
             // To enable password failures to trigger lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
@@ -400,7 +408,13 @@ namespace SAT.MVC.UI.Controllers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
-        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
 
         private void AddErrors(IdentityResult result)
         {
