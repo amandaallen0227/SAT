@@ -1,0 +1,109 @@
+﻿@model SAT.DATA.EF.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="mb-2">
+    <div class="card mb-3 col-md-8 mx-auto">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">  @Html.DisplayNameFor(model => model.FirstName) @Html.DisplayNameFor(model => model.LastName):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.FirstName)
+                    @Html.DisplayFor(model => model.LastName)
+                </div>
+            </div>          
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">@Html.DisplayNameFor(model => model.Major):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.Major)
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">@Html.DisplayNameFor(model => model.Address):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.Address)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0"> @Html.DisplayNameFor(model => model.City):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.City)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0"> @Html.DisplayNameFor(model => model.State):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.State)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0"> @Html.DisplayNameFor(model => model.ZipCode):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.ZipCode)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0"> @Html.DisplayNameFor(model => model.Phone):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.Phone)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">@Html.DisplayNameFor(model => model.Email):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">  @Html.DisplayNameFor(model => model.PhotoUrl):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.PhotoUrl)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0"> @Html.DisplayNameFor(model => model.StudentStatus.SSName):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.StudentStatus.SSName)
+                </div>
+            </div>
+            <hr>
+            <div class="form-group mt-4 mb-2">
+                <div class="col-md-offset-2 col-md-12">
+                    <!-- Edit Button-->
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.StudentId }, new { @class = "btn btn-warning" })
+
+                    }
+
+                    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary float-end" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

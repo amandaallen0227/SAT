@@ -1,0 +1,77 @@
+﻿@model SAT.DATA.EF.Course
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+
+
+<div class="mb-2">
+    <div class="card mb-3 col-md-8 mx-auto">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0"> @Html.DisplayNameFor(model => model.CourseName):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.CourseName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">@Html.DisplayNameFor(model => model.CourseDescription):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.CourseDescription)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0"> @Html.DisplayNameFor(model => model.CreditHours):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.CreditHours)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">  @Html.DisplayNameFor(model => model.Curriculum):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.Curriculum)
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">@Html.DisplayNameFor(model => model.Notes):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.Notes)
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0"> @Html.DisplayNameFor(model => model.IsActive):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary"> @Html.DisplayFor(model => model.IsActive)
+                </div>
+            </div>
+            <hr>
+            <div class="form-group mt-4 mb-2">
+                <div class="col-md-offset-2 col-md-12">
+                    <!-- Edit Button-->
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.CourseId }, new { @class = "btn btn-warning" })
+                    }
+
+                    @Html.ActionLink("Back To Courses", "Index", null, new { @class = "btn btn-primary float-end" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

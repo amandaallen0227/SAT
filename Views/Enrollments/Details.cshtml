@@ -1,0 +1,46 @@
+﻿@model SAT.DATA.EF.Enrollment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="mb-2">
+    <div class="card mb-3 col-md-8 mx-auto">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">   @Html.DisplayNameFor(model => model.EnrollmentDate):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.EnrollmentDate)
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0"> @Html.DisplayNameFor(model => model.ScheduledClass.InstructorName):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.ScheduledClass.InstructorName)
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0"> @Html.DisplayNameFor(model => model.Student.FirstName):</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DisplayFor(model => model.Student.FirstName)
+                </div>
+            </div>
+            <hr>
+            <div class="form-group mt-4 mb-2">
+                <div class="col-md-offset-2 col-md-12">
+                    <!-- Delete Button-->
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.EnrollmentId }, new { @class = "btn btn-warning"})
+                    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary float-end" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

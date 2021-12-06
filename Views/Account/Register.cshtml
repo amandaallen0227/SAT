@@ -1,0 +1,50 @@
+﻿@model SAT.UI.MVC.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <br />
+                    <h2>@ViewBag.Title</h2>
+                    <br />
+                    <h4>Create a new account</h4>
+                    <hr>
+                    <div class="by-5">
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                        <form id="contactForm">
+                            <div class="form-floating">
+                                @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control", @id = "email", placeholder = "Email" } })
+                                <label for="email">Email</label>
+                                <br />
+                            </div>
+                            <div class="form-floating">
+                                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control", @id = "password", placeholder = "Password" } })
+                                <label for="password">Password</label>
+                                <br />
+                            </div>
+                            <div class="form-floating">
+                                @Html.EditorFor(m => m.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", @id = "confirmpassword", placeholder = "Confirm Password" } })
+                                <label for="confirmpassword">Confirm Password</label>
+                                <br />
+                            </div>
+
+                            <!-- Submit Button-->
+                            <button type="submit" value="Submit" class="btn btn-primary" id="submitButton">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
